@@ -88,7 +88,7 @@ public class BeanForum implements Serializable {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("usuariolog", logado);
 
-				fc.addMessage(null, new FacesMessage("Usuário Logado"));
+				fc.addMessage(null, new FacesMessage("Usuário Logado : " + logado.getNome()));
 				return "sistema.jsf?faces-redirect";
 			} else {
 				fc.addMessage(null, new FacesMessage("Acesso Negado"));
