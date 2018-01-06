@@ -41,7 +41,7 @@ public class AssuntoDao {
 		session.close();
 
 	}
-	
+
 	public void createOnlyResposta(Assunto a, Resposta r) throws Exception {
 		session = HibernateUtil.getSessionFactory().openSession();
 
@@ -60,33 +60,44 @@ public class AssuntoDao {
 		session.close();
 		return lista;
 	}
-	
+
 	private void criptografar(Assunto a) {
 		SimpleMD5 md5 = new SimpleMD5(a.getSenha(), "11");
 		a.setSenha(md5.toHexString());
 	}
-	
+
 	public Assunto findByCode(Integer id) {
 		session = HibernateUtil.getSessionFactory().openSession();
 
-		Assunto assunto =  (Assunto)session.get(Assunto.class, id);
+		Assunto assunto = (Assunto) session.get(Assunto.class, id);
 		session.close();
 		return assunto;
 	}
-	
-	
-	//teste
+
+	public Assunto logar(Assunto a) {
+		criptografar(a);
+		session = HibernateUtil.getSessionFactory().openSession();
+
+		query = session.createQuery("from Assunto a where a.email = :param1 and a.senha = :param2");
+		query.setParameter("param1", a.getEmail());
+		query.setParameter("param2", a.getSenha());
+		Assunto retorno = (Assunto)query.uniqueResult();
+		session.close();
+		return retorno;
+	}
+
+	// teste
 	public static void main(String[] args) {
 		try {
 			AssuntoDao aDao = new AssuntoDao();
 			Assunto a = aDao.findByCode(1);
-			
+
 			Resposta r = new Resposta();
 			r.setNome("lu");
-			r.setTexto("discussão geral");
-			r.setAssunto(a);
+			r.setTexto("discussão geral2");
+			r.setAssunto(aDao.logar(a));
 			new AssuntoDao().createOnlyResposta(a, r);
-			
+
 			System.out.println("Dados gravados");
 		} catch (Exception e) {
 			e.printStackTrace();
