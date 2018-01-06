@@ -24,4 +24,24 @@ HibernateUtil retorna a session, através da sessionfactory.
 
 A cada classe adicionada no projeto deve ser inclusa no mysql_hibernate, mapping;
 
+Para publicação
 
+https://jelastic.com/
+
+
+escolhe os recursos tomcat, nginx, mysql
+
+dominio forumneycoti.jelasticlw.com.br
+
+a partir do e-mail enviado após a criação do ambiente acessa uma página com  usuário e senha fornecidos para fazer a ciação do banco de dados
+
+
+Altera as configurações no mysql_hiberante
+    <property name="hibernate.connection.url">
+jdbc:mysql://localhost:3306/titioavo?createDatabaseIfNotExist=true</property>
+
+ para 
+    <property name="hibernate.connection.url">
+https://node154426-cotiforumbelem.jelasticlw.com.br:3306/titioavo</property>
+coloca
+usuário e senha do e-mail
