@@ -17,3 +17,11 @@ HibernateUtil.java
 
 
 Possibilidade de melhoria nas regras de salvar assunto, para identificar se o assunto já existe ou não e salvar somente a resposta, no AssuntoDao.
+
+Classe Main no package config cria o database;
+
+HibernateUtil retorna a session, através da sessionfactory.
+
+A cada classe adicionada no projeto deve ser inclusa no mysql_hibernate, mapping;
+
+
