@@ -1,0 +1,19 @@
+Projeto forum:
+
+
+
+Lib
+mysql 5.1.23
+prime faces 5.0
+hibernate 3.0
+
+
+No package config coloca-se
+mysql_hibernate.cfg.xml
+
+No packege persistence coloca-se
+HibernateUtil.java
+
+
+
+Possibilidade de melhoria nas regras de salvar assunto, para identificar se o assunto já existe ou não e salvar somente a resposta, no AssuntoDao.
