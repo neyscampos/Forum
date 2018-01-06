@@ -1,6 +1,8 @@
 Projeto forum:
 
 
+Assuntos tratados:
+Session no prime faces, relacionamento um para muitos, hibernate, acesso a banco de dados, 
 
 Lib
 mysql 5.1.23
@@ -45,3 +47,5 @@ jdbc:mysql://localhost:3306/titioavo?createDatabaseIfNotExist=true</property>
 https://node154426-cotiforumbelem.jelasticlw.com.br:3306/titioavo</property>
 coloca
 usuário e senha do e-mail
+
+exporta o projeto no eclipse na opção de web war file e fazer upload do projeto.

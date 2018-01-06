@@ -100,4 +100,38 @@ public class BeanForum implements Serializable {
 		return null;
 	}
 
+	public void mostrarDados() {
+		FacesContext fc = FacesContext.getCurrentInstance();
+		try {
+			HttpServletRequest request = (HttpServletRequest) fc.getExternalContext().getRequest();
+			HttpSession session = request.getSession();
+			
+			Assunto as = (Assunto) session.getAttribute("usuariolog");
+			resposta.setAssunto(as);
+			resposta.setNome(as.getNome());
+			
+		} catch (Exception e) {
+			fc.addMessage(null, new FacesMessage("Error : " + e.getMessage()));
+		}
+	}
+
+	public void gravarResposta() {
+		FacesContext fc = FacesContext.getCurrentInstance();
+		try {
+			AssuntoDao dao = new AssuntoDao();
+			HttpServletRequest request = (HttpServletRequest) fc.getExternalContext().getRequest();
+			HttpSession session = request.getSession();
+			
+			Assunto as = (Assunto) session.getAttribute("usuariolog");
+			
+			dao.createOnlyResposta(as, resposta);
+			assunto = new Assunto();
+
+			fc.addMessage(null, new FacesMessage("Dados Gravados"));
+
+		} catch (Exception e) {
+			fc.addMessage(null, new FacesMessage("Error : " + e.getMessage()));
+		}
+	}
+
 }
