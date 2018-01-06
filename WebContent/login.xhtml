@@ -6,15 +6,44 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="">
-	<ui:define name="header">
-	    Add your header here or delete to use the default
-	</ui:define>
-	<ui:define name="content">
-	    Add your content here or delete to use the default
-	</ui:define>
-	<ui:define name="footer">
-	    Add your footer here or delete to use the default
-	</ui:define>
-</ui:composition>
+<h:head>
+</h:head>
+<h:body>
+	<h3 style="margin-top: 0">Menu Principal</h3>
+
+	<p:menu>
+		<p:submenu label="Navigations">
+			<p:menuitem value="cadastrar" outcome="index.jsf" icon="ui-icon-star"></p:menuitem>
+			<p:menuitem value="logar" outcome="login.jsf" icon="ui-icon-star"></p:menuitem>
+		</p:submenu>
+
+	</p:menu>
+
+	<p />
+	<hr />
+
+	<p:panel header="Login no Sistema ">
+		<h:form id="form2">
+			<p:panelGrid columns="2">
+				<h:outputText value="Email" />
+				<p:inputText value="#{mb.assunto.email}" />
+
+				<h:outputText value="Senha" />
+				<p:password value="#{mb.assunto.senha}" />
+
+				<p:commandButton value="Logar no Sistema" action="#{mb.logar}"
+					ajax="false">
+				</p:commandButton>
+			</p:panelGrid>
+
+			<p:growl></p:growl>
+		</h:form>
+	</p:panel>
+
+
+
+</h:body>
+
+
+
 </html>

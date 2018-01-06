@@ -74,7 +74,7 @@ public class AssuntoDao {
 		return assunto;
 	}
 
-	public Assunto logar(Assunto a) {
+	public Assunto findByLogin(Assunto a) {
 		criptografar(a);
 		session = HibernateUtil.getSessionFactory().openSession();
 
@@ -95,7 +95,7 @@ public class AssuntoDao {
 			Resposta r = new Resposta();
 			r.setNome("lu");
 			r.setTexto("discussão geral2");
-			r.setAssunto(aDao.logar(a));
+			r.setAssunto(aDao.findByLogin(a));
 			new AssuntoDao().createOnlyResposta(a, r);
 
 			System.out.println("Dados gravados");

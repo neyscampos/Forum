@@ -21,7 +21,10 @@
 		</p:submenu>
 	</p:menu>
 
-	<!--  -->
+	<p />
+	<hr />
+
+	<!-- Gravação de novo assunto -->
 	<p:panel header="Gravar Forum">
 		<h:form id="form1">
 			<p:panelGrid columns="2">
@@ -43,7 +46,7 @@
 				<p:commandButton value="Cadastrar" ajax="true" update=":form1"
 					action="#{mb.gravarPrimeira}">
 				</p:commandButton>
-				
+
 				<p:growl></p:growl>
 			</p:panelGrid>
 

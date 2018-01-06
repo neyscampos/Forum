@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+	<p:panel header="Logado no Sistema: #{usuariolog.nome}">
+		<p:dataTable value="#{mb.listaAssuntos}" var="assunto" border="1" rows="4" paginator="true">
+			<p:column headerText="Nome">
+				<h:outputText value="#{assunto.nome}"/>
+			</p:column>
+			
+			<p:column headerText="Email">
+				<h:outputText value="#{assunto.email}"/>
+			</p:column>			
+			
+			<p:column headerText="Assunto">
+				<h:outputText value="#{assunto.assunto}"/>
+			</p:column>
+			
+			<p:column headerText="Comentário">
+				<h:outputText value="#{assunto.comentario}"/>
+			</p:column>					
+		</p:dataTable>
+	</p:panel>
+
+
+
+</h:body>
+</html>
