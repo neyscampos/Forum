@@ -68,27 +68,26 @@
 		<h:form id="form7">
 			<p:panelGrid columns="2">
 				<h:outputText value="idAssunto" />
-				<h:inputText value=" #{mb.resposta.assunto.id}" />
+				<p:inputText value=" #{mb.resposta.assunto.id}" />
 
 				<h:outputText value="Nome" />
-				<h:inputText value=" #{mb.resposta.nome}" />
+				<p:inputText value=" #{mb.resposta.nome}" />
 
 				<h:outputText value="Texto" />
-				<h:inputText value=" #{mb.resposta.texto}" />
+				<p:inputText value=" #{mb.resposta.texto}" />
 
-				<p:commandButton value="Gravar Resposta" update=":form7, :form6"
+				<p:commandButton value="Gravar Resposta" update=":form6"
 					action="#{mb.gravarResposta}" ajax="true"
 					onclick="PF('resposta').hide();">
-					<f:setPropertyActionListener value="#{mv.resposta}"
-						target="#{mv.resposta}"></f:setPropertyActionListener>
+					<!-- <f:setPropertyActionListener value="#{mv.resposta}"
+						target="#{mv.resposta}"></f:setPropertyActionListener> -->
 
 				</p:commandButton>
+				<p:growl></p:growl>
 			</p:panelGrid>
-			<p:growl></p:growl>
+
 		</h:form>
 	</p:dialog>
-
-
 
 
 </h:body>

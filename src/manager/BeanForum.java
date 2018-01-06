@@ -123,13 +123,16 @@ public class BeanForum implements Serializable {
 			HttpSession session = request.getSession();
 			
 			Assunto as = (Assunto) session.getAttribute("usuariolog");
-			
+			if (as == null) {
+				throw new Exception("usuário não logado");
+			}
 			dao.createOnlyResposta(as, resposta);
 			assunto = new Assunto();
 
 			fc.addMessage(null, new FacesMessage("Dados Gravados"));
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			fc.addMessage(null, new FacesMessage("Error : " + e.getMessage()));
 		}
 	}
